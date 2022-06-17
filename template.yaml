@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: TrueNAS AWS Resources
+
+Parameters:
+  WebhookId:
+    Type: String
+  WebhookToken:
+    Type: String
+  TrunasUrl:
+    Type: String
+    Default: ''
+
+Globals:
+  Function:
+    Runtime: nodejs16.x
+    Timeout: 30
+    
+Resources:
+  SendDiscordNotificationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.handler
+      FunctionName: "Send-Discord-Notification"
+      CodeUri: src/send-discord-notification/
+      Environment:
+        Variables:
+          WEBHOOK_ID: !Ref WebhookId
+          WEBHOOK_TOKEN: !Ref WebhookToken
+          TRUENAS_URL: !Ref TrunasUrl
+      Events:
+        SNSEvent:
+          Type: SNS
+          Properties:
+            Topic: !Ref TruenasAlertServiceTopic
+
+  TruenasAlertServiceTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: "TruenasAlertServiceTopic"

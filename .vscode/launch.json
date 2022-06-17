@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "invokeTarget": {
+                "target": "code",
+                "lambdaHandler": "app.handler",
+                "projectRoot": "${workspaceFolder}/src/send-discord-notification"
+            },
+            "lambda": {
+                "runtime": "nodejs16.x"
+            },
+            "sam": {
+                "containerBuild": false,
+                "localArguments": [
+                    "-e",
+                    "${workspaceFolder}/env-vars.json"
+                ],
+                "skipNewImageCheck": false
+            },
+            "name": "send-discord-notification:app.handler (nodejs16.x)"
+        }
+    ]
+}

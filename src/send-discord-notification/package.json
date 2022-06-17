@@ -1,0 +1,16 @@
+{
+  "name": "send-discord-notification",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "(cd ../.. && jest src/send-discord-notification)"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^0.5.0",
+    "discord-api-types": "^0.34.0",
+    "node-html-markdown": "^1.2.0"
+  }
+}
