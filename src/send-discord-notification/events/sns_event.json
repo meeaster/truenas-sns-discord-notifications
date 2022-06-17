@@ -10,7 +10,7 @@
           "Signature": "tcc6faL2yUC6dgZdmrwh1Y4cGa/ebXEkAi6RibDsvpi+tE/1+82j...65r==",
           "SigningCertUrl": "https://sns.us-east-2.amazonaws.com/SimpleNotificationService-ac565b8b1a6c5d002d285f9598aa1d9b.pem",
           "MessageId": "95df01b4-ee98-5cb9-9903-4c221d41eb5e",
-          "Message": "TrueNAS @ truenas<br><br>This is a test alert",
+          "Message": "TrueNAS @ truenas<br><br>The following alert has been cleared:\n<ul><li>UPS ups is on battery power.<br><br>UPS Statistics: 'ups'<br><br>Statistics recovered:<br><br>1) Battery charge (percent)<br> &nbsp;&nbsp;&nbsp; battery.charge: 100<br><br>2) Battery level remaining (percent) when UPS switches to Low Battery (LB)<br> &nbsp;&nbsp;&nbsp; battery.charge.low: 10<br><br>3) Battery runtime (seconds)<br> &nbsp;&nbsp;&nbsp; battery.runtime: 3200<br><br>4) Battery runtime remaining (seconds) when UPS switches to Low Battery (LB)<br> &nbsp;&nbsp;&nbsp; battery.runtime.low: 300<br><br></li>\n</ul>\n",
           "MessageAttributes": {
             "Test": {
               "Type": "String",

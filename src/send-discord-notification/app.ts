@@ -9,12 +9,12 @@ import { NodeHtmlMarkdown } from 'node-html-markdown';
 export const handler = async (event: SNSEvent) => {
     console.log('incoming event is', JSON.stringify(event));
 
-    const regex = /(.*?)<br><br>(.*)/g;
-    const match = regex.exec(event.Records[0].Sns.Message);
+    const cleanMessage = event.Records[0].Sns.Message.replace('\n', '');
+    const regex = /(.*?)<br><br>(.*)/;
+    const match = regex.exec(cleanMessage);
     if (!match) {
         throw new Error('Unable to match message');
     }
-
     const markdownMessage = NodeHtmlMarkdown.translate(match[2]);
 
     console.log('translated markdown:', markdownMessage);
