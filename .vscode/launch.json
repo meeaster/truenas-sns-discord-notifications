@@ -14,7 +14,9 @@
             "sam": {
                 "containerBuild": false,
                 "localArguments": [
-                    "-e",
+                    "--event",
+                    "${workspaceFolder}/src/send-discord-notification/events/sns_event.json",
+                    "--container-env-vars",
                     "${workspaceFolder}/env-vars.json"
                 ],
                 "skipNewImageCheck": false
